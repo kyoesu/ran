@@ -65,8 +65,8 @@ def href(a):
 
 def conn(ch,h):
     if ch==True:
-        l=input("введи ссылку(работает только с www.royalroad.com)     ")
-        #l="https:///fiction/16946/azarinth-healer/chapter/1032812/chapter-894-eyes-of-the-world"#пред-пред последняя шлава
+        #l=input("введи ссылку(работает только с www.royalroad.com)     ")
+        l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/1032812/chapter-894-eyes-of-the-world"#пред-пред последняя шлава
         #l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/198097/chapter-1-boring-introduction-where-is-the-magic"#1 глава
     else:
         l=h
