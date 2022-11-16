@@ -1,5 +1,6 @@
 import requests #pip install requests
-import googletrans#pip install googletrans
+from googletrans import Translator#pip install googletrans==4.0.0-rc1
+
 
 def search(a):
     i=0
@@ -61,12 +62,13 @@ def href(a):
         i=i-1
     
     h=a[i1+1:i2-2]
+    h="https://www.royalroad.com"+h
     return h
 
 def conn(ch,h):
     if ch==True:
-        l=input("введи ссылку(работает только с www.royalroad.com)     ")
-        #l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/1032812/chapter-894-eyes-of-the-world"#пред-пред последняя шлава
+        #l=input("введи ссылку(работает только с www.royalroad.com)     ")
+        l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/1032812/chapter-894-eyes-of-the-world"#пред-пред последняя шлава
         #l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/198097/chapter-1-boring-introduction-where-is-the-magic"#1 глава
     else:
         l=h
@@ -83,3 +85,26 @@ def last(a):
     if a.count('disabled">Next')>0:
         end=True
     return end
+
+def gt(a):
+    a1=a.splitlines()
+    translator = Translator()
+    a2=""
+    for i in range(len(a1)-1):
+        if a1[i]!='':
+            if len(a1[i])>4900:
+                j=2000
+                a3=a1[i]
+                while a3[j]!="."and a3[j]!='!'and a3[j]!='?':
+                    j+=1
+                a2=a2+translator.translate(str(a3[:j]),src= 'en', dest= 'ru').text
+                a2=a2+translator.translate(str(a3[j:]),src= 'en', dest= 'ru').text
+                a2=a2+"\r"
+            else:
+                a2=a2+translator.translate(str(a1[i]),src= 'en', dest= 'ru').text
+                a2=a2+"\r"
+        
+    return a2
+    #t = translator.translate(a,src= 'en', dest= 'ru').text
+    #print (t)
+    #return t
