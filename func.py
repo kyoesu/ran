@@ -68,8 +68,8 @@ def href(a):
 def conn(ch,h):
     if ch==True:
         #l=input("введи ссылку(работает только с www.royalroad.com)     ")
-        l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/1032812/chapter-894-eyes-of-the-world"#пред-пред последняя шлава
-        #l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/198097/chapter-1-boring-introduction-where-is-the-magic"#1 глава
+        #l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/1032812/chapter-894-eyes-of-the-world"#пред-пред последняя шлава
+        l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/198097/chapter-1-boring-introduction-where-is-the-magic"#1 глава
     else:
         l=h
     response = requests.get(l)
@@ -90,17 +90,20 @@ def gt(a):
     a1=a.splitlines()
     translator = Translator()
     a2=""
-    for i in range(len(a1)-1):
-        if a1[i]!='':
+    #print (a1)
+    i=0
+    for i in range(len(a1)-2):
+        if a1[i]!=''and a1[i]!=' ':
             if len(a1[i])>4900:
                 j=2000
                 a3=a1[i]
                 while a3[j]!="."and a3[j]!='!'and a3[j]!='?':
                     j+=1
                 a2=a2+translator.translate(str(a3[:j]),src= 'en', dest= 'ru').text
-                a2=a2+translator.translate(str(a3[j:]),src= 'en', dest= 'ru').text
+                a2=a2+translator.translate(str(a3[j+1:]),src= 'en', dest= 'ru').text
                 a2=a2+"\r"
             else:
+                print(translator.translate(str(a1[i]),src= 'en', dest= 'ru').text)
                 a2=a2+translator.translate(str(a1[i]),src= 'en', dest= 'ru').text
                 a2=a2+"\r"
         
