@@ -67,9 +67,9 @@ def href(a):
 
 def conn(ch,h):
     if ch==True:
-        #l=input("введи ссылку(работает только с www.royalroad.com)     ")
+        l=input("введи ссылку(работает только с www.royalroad.com)     ")
         #l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/1032812/chapter-894-eyes-of-the-world"#пред-пред последняя шлава
-        l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/198097/chapter-1-boring-introduction-where-is-the-magic"#1 глава
+        #l="https://www.royalroad.com/fiction/16946/azarinth-healer/chapter/198097/chapter-1-boring-introduction-where-is-the-magic"#1 глава
     else:
         l=h
     response = requests.get(l)
@@ -103,11 +103,9 @@ def gt(a):
                 a2=a2+translator.translate(str(a3[j+1:]),src= 'en', dest= 'ru').text
                 a2=a2+"\r"
             else:
-                print(translator.translate(str(a1[i]),src= 'en', dest= 'ru').text)
+                #print(translator.translate(str(a1[i]),src= 'en', dest= 'ru').text)
                 a2=a2+translator.translate(str(a1[i]),src= 'en', dest= 'ru').text
                 a2=a2+"\r"
         
     return a2
-    #t = translator.translate(a,src= 'en', dest= 'ru').text
-    #print (t)
-    #return t
+    

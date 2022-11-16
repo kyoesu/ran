@@ -1,4 +1,5 @@
 from func import *
+import time\
 
 a1=""
 a2=""
@@ -8,8 +9,8 @@ h=""
 ch=True
 end=True
 j=0
-#z=int(input('введите кол-во глав, которые надо обработать(либо 0, что бы дошло до конца)   '))
-z=2
+z=int(input('введите кол-во глав, которые надо обработать(либо 0, что бы дошло до конца)   '))
+#z=3
 if z==0:
     end=False
 elif z!=1:
@@ -33,4 +34,6 @@ a2=a2+a1
 f=open('fin.txt','w+')
 f.write(a2)
 f.close()
-#gt(a)
+print("готово!")
+
+print("прошло "+str(time.perf_counter())+" секунд")
